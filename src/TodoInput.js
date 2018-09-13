@@ -36,13 +36,14 @@ export default class TodoInput extends React.Component {
 
   render() {
     return (
-
-      <form className="TaskForm" onSubmit={this.handleSubmit}>
-        <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
-        <input type="text" name="content" value={this.state.content} onChange={this.handleChange}/> 
-        <input type="text" name="date" value={this.state.date} onChange={this.handleChange} /> <br />
-        <button className="btn btn-primary" type="submit">Submit</button>
-      </form>
+      <div className="container">
+        <form className="TaskForm" onSubmit={this.handleSubmit}>
+          <input type="text" name="title" placeholder="Title" value={this.state.title} onChange={this.handleChange} />
+          <input type="text" name="content" placeholder="Content" value={this.state.content} onChange={this.handleChange}/> 
+          <input type="date" name="date" placeholder="Date" value={this.state.date} onChange={this.handleChange} /> <br />
+          <button className="btn btn-primary" type="submit">Submit</button>
+        </form>
+      </div>
     );
   }
 }
