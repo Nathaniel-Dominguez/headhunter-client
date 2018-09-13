@@ -26,7 +26,8 @@ export default class TodoInput extends React.Component {
     e.preventDefault();
     // Ensure a todo was actually entered before submitting
     this.props.addTodo(this.state);
-    this.setState({title: '',
+    this.setState({
+      title: '',
       content: '',
       date: ''
     });
