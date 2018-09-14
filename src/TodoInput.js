@@ -2,38 +2,44 @@ import React from 'react';
 import './todoInput.css';
 
 export default class TodoInput extends React.Component {
+
   constructor(props) {
     super(props);
-    this.state = {
-      newTodo: {
+      this.state = {
         title: '',
         content: '',
         date: ''
-      }
-    };
-
-    // this.handleChange = this.handleChange.bind(this);
-    // this.addTodo = this.addTodo.bind(this);
+    }
   }
 
   handleChange = (e) => {
-    this.setState({
+    console.log(this.state);
+    this.setState({ 
       [e.target.name]: e.target.value
     })
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    // Ensure a todo was actually entered before submitting
-    this.props.addTodo(this.state);
-    this.setState({
-      title: '',
-      content: '',
-      date: ''
-    });
-   // }
-  }
+  // handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   // Ensure a todo was actually entered before submitting
+  //   this.props.task(this.state);
+  //   this.setState({
+  //     task:{
+  //       title: '',
+  //       content: '',
+  //       date: ''
+  //
+  //   })
+  // }
 
+  handleSubmit = (e) => {
+    e.preventDefault()
+    this.props.handleSubmit({
+      title: this.state.title,
+      content: this.state.content, 
+      date: this.state.date
+      })
+  }
 
   render() {
     return (
@@ -45,7 +51,7 @@ export default class TodoInput extends React.Component {
           <button className="btn btn-primary" type="submit">Submit</button>
         </form>
       </div>
-    );
+    )
   }
 }
 
